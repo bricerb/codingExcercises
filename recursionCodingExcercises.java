@@ -1,5 +1,6 @@
-/* 
-We have a number of bunnies and each bunny has two big floppy ears. We want to compute the total number of ears across all the bunnies recursively (without loops or multiplication).
+/*  We have a number of bunnies and each bunny has two big floppy ears. We
+want to compute the total number of ears across all the bunnies recursively
+(without loops or multiplication).
 
 bunnyEars(0) → 0
 bunnyEars(1) → 2
@@ -15,8 +16,8 @@ public int bunnyEars(int bunnies) {
 
 
 
-/*
-Given n of 1 or more, return the factorial of n, which is n * (n-1) * (n-2) ... 1. Compute the result recursively (without loops).
+/* Given n of 1 or more, return the factorial of n, which is n * (n-1) * (n-2)
+... 1. Compute the result recursively (without loops).
 
 factorial(1) → 1
 factorial(2) → 2
@@ -33,8 +34,12 @@ public int factorial(int n) {
 
 
 
-/*
-The fibonacci sequence is a famous bit of mathematics, and it happens to have a recursive definition. The first two values in the sequence are 0 and 1 (essentially 2 base cases). Each subsequent value is the sum of the previous two values, so the whole sequence is: 0, 1, 1, 2, 3, 5, 8, 13, 21 and so on. Define a recursive fibonacci(n) method that returns the nth fibonacci number, with n=0 representing the start of the sequence.
+/* The fibonacci sequence is a famous bit of mathematics, and it happens to
+have a recursive definition. The first two values in the sequence are 0 and 1
+(essentially 2 base cases). Each subsequent value is the sum of the previous
+two values, so the whole sequence is: 0, 1, 1, 2, 3, 5, 8, 13, 21 and so on.
+Define a recursive fibonacci(n) method that returns the nth fibonacci number,
+with n=0 representing the start of the sequence.
 
 fibonacci(0) → 0
 fibonacci(1) → 1
@@ -294,6 +299,35 @@ public int countHi(String str) {
     return countHi(myString);
   }
 }
+
+
+
+/* Given a string, compute recursively (no loops) a new string where all the
+lowercase 'x' chars have been changed to 'y' chars.
+
+changeXY("codex") → "codey"
+changeXY("xxhixx") → "yyhiyy"
+changeXY("xhixhix") → "yhiyhiy"
+*/
+
+public String changeXY(String str) {
+  return effChangeXY(str, 0);
+}
+
+public String effChangeXY(String str, int index) {
+  char[] charArray = str.toCharArray();
+  if (charArray.length == 0) {
+    return str;
+  }
+  
+  if (charArray[0] == 'x') {
+    charArray[0] = 'y';
+  }
+  String myString = new String(charArray);
+  index += 1;
+  return effChangeXY(myString, index);
+}
+
 
 
 

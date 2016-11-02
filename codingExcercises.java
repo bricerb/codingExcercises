@@ -111,5 +111,29 @@ public int fastTriangle(int rows, int tracker) {
 
 
 
+/*
+Given a non-negative int n, return the sum of its digits recursively (no loops). Note that mod (%) by 10 yields the rightmost digit (126 % 10 is 6), while divide (/) by 10 removes the rightmost digit (126 / 10 is 12).
+
+sumDigits(126) → 9
+sumDigits(49) → 13
+sumDigits(12) → 3
+*/
+
+public int sumDigits(int n) {
+  return fastSumDigits(n, 0);
+}
+
+public int fastSumDigits(int n, int tracker) {
+  if (n == 0) {
+    return tracker;
+  }
+  
+  tracker += n % 10;
+  return fastSumDigits(n / 10, tracker);
+}
+
+
+
+
 
 

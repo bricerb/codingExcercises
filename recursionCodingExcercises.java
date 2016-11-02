@@ -316,12 +316,12 @@ public String changeXY(String str) {
 
 public String effChangeXY(String str, int index) {
   char[] charArray = str.toCharArray();
-  if (charArray.length == 0) {
+  if (charArray.length == 0 || index == charArray.length) {
     return str;
   }
   
-  if (charArray[0] == 'x') {
-    charArray[0] = 'y';
+  if (charArray[index] == 'x') {
+    charArray[index] = 'y';
   }
   String myString = new String(charArray);
   index += 1;

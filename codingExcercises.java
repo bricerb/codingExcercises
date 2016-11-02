@@ -96,7 +96,18 @@ triangle(1) → 1
 triangle(2) → 3
 */
 
-gi
+public int triangle(int rows) {
+  return fastTriangle(rows, 0);
+}
+
+public int fastTriangle(int rows, int tracker) {
+  if (rows == 0 ) {
+    return tracker;
+  }
+  
+  tracker += rows;
+  return fastTriangle(rows - 1, tracker);
+}
 
 
 

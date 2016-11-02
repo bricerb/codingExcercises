@@ -61,8 +61,11 @@ public int fastFib(int firstFib, int secondFib, int fibTracker) {
 
 
 
-/*
-We have bunnies standing in a line, numbered 1, 2, ... The odd bunnies (1, 3, ..) have the normal 2 ears. The even bunnies (2, 4, ..) we'll say have 3 ears, because they each have a raised foot. Recursively return the number of "ears" in the bunny line 1, 2, ... n (without loops or multiplication).
+/* We have bunnies standing in a line, numbered 1, 2, ... The odd
+bunnies (1, 3, ..) have the normal 2 ears. The even bunnies (2, 4, ..)
+we'll say have 3 ears, because they each have a raised foot.
+Recursively return the number of "ears" in the bunny line 1, 2, ... n
+(without loops or multiplication).
 
 bunnyEars2(0) → 0
 bunnyEars2(1) → 2
@@ -88,8 +91,10 @@ public int fastEars(int bunnies, int tracker) {
 
 
 
-/*
-We have triangle made of blocks. The topmost row has 1 block, the next row down has 2 blocks, the next row has 3 blocks, and so on. Compute recursively (no loops or multiplication) the total number of blocks in such a triangle with the given number of rows.
+/* We have triangle made of blocks. The topmost row has 1 block, the next row
+down has 2 blocks, the next row has 3 blocks, and so on. Compute recursively
+(no loops or multiplication) the total number of blocks in such a triangle
+with the given number of rows.
 
 triangle(0) → 0
 triangle(1) → 1
@@ -111,8 +116,9 @@ public int fastTriangle(int rows, int tracker) {
 
 
 
-/*
-Given a non-negative int n, return the sum of its digits recursively (no loops). Note that mod (%) by 10 yields the rightmost digit (126 % 10 is 6), while divide (/) by 10 removes the rightmost digit (126 / 10 is 12).
+/* Given a non-negative int n, return the sum of its digits recursively (no
+loops). Note that mod (%) by 10 yields the rightmost digit (126 % 10 is 6),
+while divide (/) by 10 removes the rightmost digit (126 / 10 is 12).
 
 sumDigits(126) → 9
 sumDigits(49) → 13
@@ -134,9 +140,10 @@ public int fastSumDigits(int n, int tracker) {
 
 
 
-/*
-
-Given a non-negative int n, return the count of the occurrences of 7 as a digit, so for example 717 yields 2. (no loops). Note that mod (%) by 10 yields the rightmost digit (126 % 10 is 6), while divide (/) by 10 removes the rightmost digit (126 / 10 is 12).
+/* Given a non-negative int n, return the count of the occurrences of 7 as a
+digit, so for example 717 yields 2. (no loops). Note that mod (%) by 10 yields
+the rightmost digit (126 % 10 is 6), while divide (/) by 10 removes the
+rightmost digit (126 / 10 is 12).
 
 count7(717) → 2
 count7(7) → 1
@@ -160,8 +167,11 @@ public int effCount7(int n, int tracker) {
 
 
 
-/*
-Given a non-negative int n, compute recursively (no loops) the count of the occurrences of 8 as a digit, except that an 8 with another 8 immediately to its left counts double, so 8818 yields 4. Note that mod (%) by 10 yields the rightmost digit (126 % 10 is 6), while divide (/) by 10 removes the rightmost digit (126 / 10 is 12).
+/* Given a non-negative int n, compute recursively (no loops) the count of the
+occurrences of 8 as a digit, except that an 8 with another 8 immediately to
+its left counts double, so 8818 yields 4. Note that mod (%) by 10 yields the
+rightmost digit (126 % 10 is 6), while divide (/) by 10 removes the rightmost
+digit (126 / 10 is 12).
 
 count8(8) → 1
 count8(818) → 2
@@ -192,8 +202,8 @@ public int fastCount8(int n, int tracker, boolean previous8) {
 
 
 
-/*
-Given base and n that are both 1 or more, compute recursively (no loops) the value of base to the n power, so powerN(3, 2) is 9 (3 squared).
+/* Given base and n that are both 1 or more, compute recursively (no loops)
+the value of base to the n power, so powerN(3, 2) is 9 (3 squared).
 
 powerN(3, 1) → 3
 powerN(3, 2) → 9
@@ -212,8 +222,8 @@ public int powerN(int base, int n) {
 
 
 
-/*
-Given a string, compute recursively (no loops) the number of lowercase 'x' chars in the string.
+/* Given a string, compute recursively (no loops) the number of lowercase 'x'
+chars in the string.
 
 countX("xxhixx") → 4
 countX("xhixhix") → 3
@@ -246,6 +256,44 @@ public int countX(String str) {
   }
 }
 
+
+
+/* Given a string, compute recursively (no loops) the number of times
+lowercase "hi" appears in the string.
+
+countHi("xxhixx") → 1
+countHi("xhixhix") → 2
+countHi("hi") → 1
+*/
+
+
+
+public int countHi(String str) {
+  char[] charArray = str.toCharArray();
+  if (charArray.length == 0 || charArray.length == 1) {
+    return 0;
+  }
+  char[] newCharArray = null;
+  
+  if (charArray[0] == 'h' && charArray[1] == 'i') {
+    if (charArray.length <= 2) {
+      return 1;
+    }
+    newCharArray = new char[charArray.length - 2];
+    for (int counter = 0; counter < charArray.length - 2; counter ++) {
+      newCharArray[counter] = charArray[counter + 2];
+    }
+    String myString = new String(newCharArray);
+    return 1 + countHi(myString);
+  } else {
+    newCharArray = new char[charArray.length - 1];
+    for (int counter = 0; counter < charArray.length - 1; counter ++) {
+      newCharArray[counter] = charArray[counter + 1];
+    }
+    String myString = new String(newCharArray);
+    return countHi(myString);
+  }
+}
 
 
 

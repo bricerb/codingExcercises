@@ -212,4 +212,40 @@ public int powerN(int base, int n) {
 
 
 
+/*
+Given a string, compute recursively (no loops) the number of lowercase 'x' chars in the string.
+
+countX("xxhixx") → 4
+countX("xhixhix") → 3
+countX("hi") → 0
+*/
+
+public int countX(String str) {
+  char[] charArray = str.toCharArray();
+  if (charArray.length == 0) {
+    return 0;
+  }
+  
+  if (charArray.length == 1) {
+    if (charArray[0] == 'x') {
+      return 1;
+    } else{
+      return 0;
+    }
+  } else {
+    char[] newCharArray = new char[charArray.length - 1];
+    for (int counter = 0; counter < newCharArray.length; counter ++) {
+      newCharArray[counter] = charArray[counter + 1];
+    }
+    
+    String myString = new String(newCharArray);
+    if (charArray[0] == 'x') {
+      return 1 + countX(myString);
+    }
+    return countX(myString);
+  }
+}
+
+
+
 

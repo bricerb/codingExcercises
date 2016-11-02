@@ -32,6 +32,7 @@ public int factorial(int n) {
 }
 
 
+
 /*
 The fibonacci sequence is a famous bit of mathematics, and it happens to have a recursive definition. The first two values in the sequence are 0 and 1 (essentially 2 base cases). Each subsequent value is the sum of the previous two values, so the whole sequence is: 0, 1, 1, 2, 3, 5, 8, 13, 21 and so on. Define a recursive fibonacci(n) method that returns the nth fibonacci number, with n=0 representing the start of the sequence.
 
@@ -57,3 +58,47 @@ public int fastFib(int firstFib, int secondFib, int fibTracker) {
   fibTracker--;
   return fastFib(secondFib, currentFibNumber, fibTracker);
 }
+
+
+
+/*
+We have bunnies standing in a line, numbered 1, 2, ... The odd bunnies (1, 3, ..) have the normal 2 ears. The even bunnies (2, 4, ..) we'll say have 3 ears, because they each have a raised foot. Recursively return the number of "ears" in the bunny line 1, 2, ... n (without loops or multiplication).
+
+bunnyEars2(0) → 0
+bunnyEars2(1) → 2
+bunnyEars2(2) → 5
+*/
+
+public int bunnyEars2(int bunnies) {
+  return fastEars(bunnies, 0);
+}
+
+public int fastEars(int bunnies, int tracker) {
+  if (bunnies == 0) {
+    return tracker;
+  }
+  
+  if (bunnies % 2 == 0) {
+    tracker += 3;
+  } else {
+    tracker += 2;
+  }
+  return fastEars(bunnies - 1, tracker);
+}
+
+
+
+/*
+We have triangle made of blocks. The topmost row has 1 block, the next row down has 2 blocks, the next row has 3 blocks, and so on. Compute recursively (no loops or multiplication) the total number of blocks in such a triangle with the given number of rows.
+
+triangle(0) → 0
+triangle(1) → 1
+triangle(2) → 3
+*/
+
+gi
+
+
+
+
+

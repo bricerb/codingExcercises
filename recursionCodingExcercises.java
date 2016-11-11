@@ -330,4 +330,64 @@ public String effChangeXY(String str, int index) {
 
 
 
+/* Given a string, compute recursively (no loops) a new string where all
+/* appearances of "pi" have been replaced by "3.14".
+
+changePi("xpix") → "x3.14x"
+changePi("pipi") → "3.143.14"
+changePi("pip") → "3.14p"
+*/
+
+public String changePi(String str) {
+  return effChangePi(str, 0);
+}
+
+public String effChangePi(String str, int index) {
+  char[] charArray = str.toCharArray();
+  if (charArray.length == 1 || charArray.length == 0 || index == charArray.length) {
+    return str;
+  }
+  char[] newCharArray = null;
+  StringBuilder myBuilder = new StringBuilder();
+  
+  if ((charArray.length - index) > 1) {
+    if (charArray[index] == 'p' && charArray[index + 1] == 'i' && charArray.length > 2) {
+      newCharArray = new char[charArray.length + 2];
+      for (int counter = 0; counter == charArray.length + 2; counter ++) {
+        if (counter < index) {
+          newCharArray[counter] = charArray[counter];
+        } else if (counter == index) {
+          newCharArray[counter] = '3';
+        } else if (counter == (index + 1)) {
+          newCharArray[counter] = '.';
+        } else if (counter == (index + 2)) {
+          newCharArray[counter] = '1';
+        } else if (counter == (index + 3)) {
+          newCharArray[counter] = '4';
+        } else if (counter > (index + 3)) {
+          newCharArray[counter] = charArray[counter - 2];
+        }
+        counter ++;
+      }
+      index += 1;
+      String myString = new String(newCharArray);
+      return effChangePi(myString, index);
+    } else {
+      index += 1;
+      return effChangePi(str, index);
+    }
+  } else if (charArray.length == 2) {
+    return "3.14";
+  } else {
+    index += 1;
+    return effChangePi(str, index);
+  }
+  
+}
+
+
+
+
+
+
 

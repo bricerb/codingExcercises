@@ -83,23 +83,16 @@ public int caughtSpeeding(int speed, boolean isBirthday) {
       return 2;
     }
   } else {
-    if (speed <= 60public int sortaSum(int a, int b) {
-  if (a + b >= 10 && a + b <= 19) {
-    return 20;
-  }
-  return (a + b);
-}
-
-) {
-      return 0;
+    if (speed <= 60) {
+        return 0;     
     } else if (speed > 60 && speed <= 80) {
-      return 1;
+        return 1;
     } else if (speed > 80) {
-      return 2;
-    }
-  } 
-  return 0;
-}
+        return 2;
+    }   
+  }
+return 0; 
+} 
 
 
 
@@ -113,5 +106,26 @@ public int sortaSum(int a, int b) {
   return (a + b);
 }
 
+/* Given a day of the week encoded as 0=Sun, 1=Mon, 2=Tue, ...6=Sat,
+ and a boolean indicating if we are on vacation, return a string of
+ the form "7:00" indicating when the alarm clock should ring.
+ Weekdays, the alarm should be "7:00" and on the weekend it should
+ be "10:00". Unless we are on vacation -- then on weekdays it should
+ be "10:00" and weekends it should be "off". */
 
+public String alarmClock(int day, boolean vacation) {
+  if (vacation) {
+    if (day == 0 || day == 6) {
+      return "off";
+    } else {
+      return "10:00";
+    }
+  } else {
+    if (day == 0 || day == 6) {
+      return "10:00";
+    } else {
+      return "7:00";
+    }
+  }
+}
 

@@ -230,3 +230,43 @@ public boolean answerCell(boolean isMorning, boolean isMom, boolean isAsleep) {
   return true;
 }
 
+
+/* We are having a party with amounts of tea and candy. Return the int
+outcome of the party encoded as 0=bad, 1=good, or 2=great. A party is
+good (1) if both tea and candy are at least 5. However, if either tea
+or candy is at least double the amount of the other one, the party is
+great (2). However, in all cases, if either tea or candy is less than
+5, the party is always bad (0). */ 
+
+public int teaParty(int tea, int candy) {
+  if (tea < 5 || candy < 5) {
+    return 0;
+  }
+  if (tea >= candy*2 || candy >= tea*2) {
+    return 2;
+  }
+  return 1;
+}
+
+/* Given a string str, if the string starts with "f" return "Fizz". If
+the string ends with "b" return "Buzz". If both the "f" and "b"
+conditions are true, return "FizzBuzz". In all other cases, return the
+string unchanged. */
+
+public String fizzString(String str) {
+  char[] stringToArray = str.toCharArray();
+  if (stringToArray[0] == 'f' && stringToArray[stringToArray.length - 1] == 'b') {
+    return "FizzBuzz";
+  }
+  if (stringToArray[stringToArray.length - 1] == 'b') {
+    return "Buzz";
+  }
+  if (stringToArray[0] == 'f') {
+    return "Fizz";
+  }
+  return str;
+}
+
+
+
+

@@ -429,7 +429,30 @@ public int blueTicket(int a, int b, int c) {
   return 0;
 }
 
+/* Given two ints, each in the range 10..99, return true if there is a
+digit that appears in both numbers, such as the 2 in 12 and 23. (Note:
+division, e.g. n/10, gives the left digit while the % "mod" n%10 gives
+the right digit.) */
 
+public boolean shareDigit(int a, int b) {
+  return(a / 10 == b / 10 || a / 10 == b % 10 || a % 10 == b / 10 || a % 10 == b % 10);
+}
+
+/* Given 2 non-negative ints, a and b, return their sum, so long as the
+sum has the same number of digits as a. If the sum has more digits
+than a, just return a without b. (Note: one way to compute the number
+of digits of a non-negative int n is to convert it to a string with
+String.valueOf(n) and then check the length of the string.) */
+
+public int sumLimit(int a, int b) {
+  String stringA = String.valueOf(a);
+  String stringB = String.valueOf(b);
+  String sumAB = String.valueOf(a + b);
+  if (stringA.length() < sumAB.length()) {
+    return a;
+  }
+  return a + b;
+}
 
 
 

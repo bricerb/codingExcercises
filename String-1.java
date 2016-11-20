@@ -83,3 +83,20 @@ public String left2(String str) {
   return (str.substring(2, str.length()) + str.substring(0, 2));
 }
 
+/* 
+Given a string, return a "rotated right 2" version where the last 2 chars are moved to the start. The string length will be at least 2. */
+
+public String left2(String str) {
+  return (str.substring(2, str.length()) + str.substring(0, 2));
+}
+
+/* Given a string, return a string length 1 from its front, unless front is false, in which case return a string length 1 from its back. The string will be non-empty.
+ */
+
+ public String theEnd(String str, boolean front) {
+  if (front) {
+    return (str.substring(0,1));
+  } else {
+    return (str.substring(str.length() - 1, str.length()));
+  }
+}

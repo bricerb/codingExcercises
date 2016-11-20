@@ -48,3 +48,11 @@ public String firstTwo(String str) {
 public String firstHalf(String str) {
   return (str.substring(0, str.length() / 2));
 }
+
+/* 
+Given a string, return a version without the first and last char, so "Hello" yields "ell". The string length will be at least 2. */
+
+public String withoutEnd(String str) {
+  int beginning = str.length() - (str.length() - 1);
+  return (str.substring(beginning, str.length() -1));
+}

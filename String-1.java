@@ -56,3 +56,4 @@ public String withoutEnd(String str) {
   int beginning = str.length() - (str.length() - 1);
   return (str.substring(beginning, str.length() -1));
 }
+

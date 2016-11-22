@@ -127,3 +127,19 @@ public boolean endsLy(String str) {
 }
 
 /* Given a string and an int n, return a string made of the first and last n chars from the string. The string length will be at least n. */
+
+public String nTwice(String str, int n) {
+  return (str.substring(0, n) + str.substring (str.length() - n, str.length()));
+}
+
+/* Given a string and an index, return a string length 2 starting at the given index. If the index is too big or too small to define a string length 2, use the first 2 chars. The string length will be at least 2. */
+
+public String twoChar(String str, int index) {
+  if (str.length() < index - 2) {
+    return str.substring(0, 2);
+  }
+  
+  
+}
+
+

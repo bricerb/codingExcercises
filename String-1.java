@@ -116,3 +116,7 @@ public String withouEnd2(String str) {
 public String middleTwo(String str) {
   return (str.substring(str.length() / 2 - 1, str.length() / 2 + 1));
 }
+
+/* Given a string, return true if it ends in "ly". */
+
+

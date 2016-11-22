@@ -119,4 +119,11 @@ public String middleTwo(String str) {
 
 /* Given a string, return true if it ends in "ly". */
 
+public boolean endsLy(String str) {
+  if (str.length() < 2) {
+    return false;
+  }
+  return (str.substring(str.length() - 2, str.length()).equals("ly"));
+}
 
+/* Given a string and an int n, return a string made of the first and last n chars from the string. The string length will be at least n. */

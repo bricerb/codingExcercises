@@ -204,3 +204,13 @@ public String conCat(String a, String b) {
   return a + b;
 }
 
+/* Given a string of any length, return a new string where the last 2 chars, if present, are swapped, so "coding" yields "codign". */
+
+public String lastTwo(String str) {
+  if (str.length() <= 1) {
+    return str;
+  }
+  
+  return (str.substring(0,str.length() -2) + str.substring(str.length() - 1, str.length()) + str.substring(str.length() -2, str.length() - 1));
+}
+

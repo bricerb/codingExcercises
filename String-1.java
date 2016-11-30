@@ -188,5 +188,19 @@ public String lastChars(String a, String b) {
   return (a.substring(0,1) + b.substring(b.length() - 1, b.length()));
 }
 
+/* Given two strings, append them together (known as "concatenation") and return the result. However, if the concatenation creates a double-char, then omit one of the chars, so "abc" and "cat" yields "abcat". */
 
+public String conCat(String a, String b) {
+  if (a.length() <= 0) {
+    return b;
+  }
+  if (b.length() <= 0) {
+    return a;
+  }
+  
+  if (a.substring(a.length() - 1, a.length()).equals(b.substring(0,1))) {
+    return a + b.substring(1, b.length());
+  }
+  return a + b;
+}
 

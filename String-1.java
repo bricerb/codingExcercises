@@ -214,3 +214,22 @@ public String lastTwo(String str) {
   return (str.substring(0,str.length() -2) + str.substring(str.length() - 1, str.length()) + str.substring(str.length() -2, str.length() - 1));
 }
 
+/* Given a string, if the string begins with "red" or "blue" return that color string, otherwise return the empty string. */
+
+public String seeColor(String str) {
+  if (str.length() >=3) {
+    if (str.substring(0,3).equals("red")) {
+      return str.substring(0,3);
+    }
+    if (str.length() >=4) {
+      if (str.substring(0,4).equals("blue")) {
+        return str.substring(0,4);
+      }
+    }
+  }
+  return "";
+}
+
+
+
+

@@ -292,6 +292,73 @@ public String deFront(String str) {
   return myString;
 }
  
- 
+/* Given a string and a second "word" string, we'll say that the word matches the string if it appears at the front of the string, except its first char does not need to match exactly. On a match, return the front of the string, or otherwise return the empty string. So, so with the string "hippo" the word "hi" returns "hi" and "xip" returns "hip". The word will be at least length 1. */
+
+public String startWord(String str, String word) {
+  if (str.length() == 0) {
+    return str;
+  }
+  if (word.length() == 0) {
+    return word;
+  }
+  if (word.length() == 1) {
+    if (str.length() == 1) {
+        return str;
+    }
+    
+    if (str.substring(1,2).equals(word)) {
+      return str.substring(0,1);
+    } else {
+      return "";
+    }
+  }
+  if (str.length() == 1) {
+    if (str.equals(word.charAt(0))) {
+      return str;
+    }
+    return "";
+  }
+  
+  if (word.substring(1).equals(str.substring(1, word.length()))) {
+    return str.substring(0, word.length());
+  }
+  return "";
+}
+
+/* Given a string, if the first or last chars are 'x', return the string without those 'x' chars, and otherwise return the string unchanged. */
+
+public String withoutX(String str) {
+  if (str.length() > 0 && str.charAt(0) == 'x') {
+    str = str.substring(1);
+  }
+
+  if (str.length() > 0 && str.charAt(str.length()-1) == 'x') {
+    str = str.substring(0, str.length()-1);
+  }
+  
+  return str;
+}
+
+/* 
+Given a string, if one or both of the first 2 chars is 'x', return the string without those 'x' chars, and otherwise return the string unchanged. This is a little harder than it looks. */
+
+public String withoutX2(String str) {
+  if (str.length() == 1) {
+    if (str == "x") {
+      return "";
+    } else {
+      return str;
+    }
+  }
+  if (str.length() > 0 && str.charAt(1) == 'x') {
+    str = str.substring(0,1) + str.substring(2,str.length());
+  }
+  
+  if (str.length() > 0 && str.charAt(0) == 'x') {
+    str = str.substring(1);
+  }
+  
+  return str;
+}
 
 

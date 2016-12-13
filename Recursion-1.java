@@ -28,8 +28,8 @@ public int factorial(int n) {
   if (n == 1) {
   	return 1;
   }
-  o = n;
-  return o * factorial(n-1);
+  int otherN = n;
+  return otherN * factorial(n-1);
 }
 
 
@@ -47,6 +47,7 @@ fibonacci(2) → 1
 */
 
 int trackerNumber = 0;
+
 public int fibonacci(int n) {
   return fastFib(0, 1, n);
 }

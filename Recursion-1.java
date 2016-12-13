@@ -221,9 +221,7 @@ public int powerN(int base, int n) {
     return base;
   }
   
-  n -= 1;
-  int basePower = base;
-  return base * powerN(base, n);
+  return base * powerN(base, n-1);
 }
 
 

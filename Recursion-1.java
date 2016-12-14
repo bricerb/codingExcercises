@@ -342,46 +342,18 @@ public String changePi(String str) {
 }
 
 public String effChangePi(String str, int index) {
-  char[] charArray = str.toCharArray();
-  if (charArray.length == 1 || charArray.length == 0 || index == charArray.length) {
+  if (index + 2 >= str.length()) {
+      if(str.equals("pi")) {
+        return "3.14";
+      }
     return str;
   }
-  char[] newCharArray = null;
-  StringBuilder myBuilder = new StringBuilder();
   
-  if ((charArray.length - index) > 1) {
-    if (charArray[index] == 'p' && charArray[index + 1] == 'i' && charArray.length > 2) {
-      newCharArray = new char[charArray.length + 2];
-      for (int counter = 0; counter == charArray.length + 2; counter ++) {
-        if (counter < index) {
-          newCharArray[counter] = charArray[counter];
-        } else if (counter == index) {
-          newCharArray[counter] = '3';
-        } else if (counter == (index + 1)) {
-          newCharArray[counter] = '.';
-        } else if (counter == (index + 2)) {
-          newCharArray[counter] = '1';
-        } else if (counter == (index + 3)) {
-          newCharArray[counter] = '4';
-        } else if (counter > (index + 3)) {
-          newCharArray[counter] = charArray[counter - 2];
-        }
-        counter ++;
-      }
-      index += 1;
-      String myString = new String(newCharArray);
-      return effChangePi(myString, index);
-    } else {
-      index += 1;
-      return effChangePi(str, index);
-    }
-  } else if (charArray.length == 2) {
-    return "3.14";
+  if (str.substring(index, index + 2).equals("pi")) {
+    return "3.14" + effChangePi(str.substring(index+2), index+2);
   } else {
-    index += 1;
-    return effChangePi(str, index);
+    return str.substring(index,index + 1) + effChangePi(str.substring(index+1), index);
   }
-  
 }
 
 

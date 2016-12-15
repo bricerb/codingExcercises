@@ -338,21 +338,17 @@ changePi("pip") → "3.14p"
 */
 
 public String changePi(String str) {
-  return effChangePi(str, 0);
-}
-
-public String effChangePi(String str, int index) {
-  if (index + 2 >= str.length()) {
-      if(str.equals("pi")) {
-        return "3.14";
-      }
-    return str;
+  if (2 >= str.length()) {
+    if (str.equals("pi")) {
+      return "3.14";
+    } else {
+      return str;
+    }
   }
-  
-  if (str.substring(index, index + 2).equals("pi")) {
-    return "3.14" + effChangePi(str.substring(index+2), index+2);
+  if (str.substring(0,2).equals("pi")) {
+    return "3.14" + changePi(str.substring(2));
   } else {
-    return str.substring(index,index + 1) + effChangePi(str.substring(index+1), index);
+    return str.substring(0,1) + changePi(str.substring(1));
   }
 }
 

@@ -444,11 +444,8 @@ public String endX(String str) {
   return str.substring(0,1) + endX(str.substring(1));
 }
 
-/* We'll say that a "pair" in a string is two instances of a char separated by a char. So "AxA" the A's make a pair. Pair's can overlap, so "AxAxA" contains 3 pairs -- 2 for A and 1 for x. Recursively compute the number of pairs in the given string.
+// We'll say that a "pair" in a string is two instances of a char separated by a char. So "AxA" the A's make a pair. Pair's can overlap, so "AxAxA" contains 3 pairs -- 2 for A and 1 for x. Recursively compute the number of pairs in the given string.
 
-countPairs("axa") → 1
-countPairs("axax") → 2
-countPairs("axbx") → 1 */
 
 public int countPairs(String str) {
   if (str.length() <= 2) {
@@ -460,11 +457,7 @@ public int countPairs(String str) {
   return 0 + countPairs(str.substring(1));
 }
 
-/* Count recursively the total number of "abc" and "aba" substrings that appear in the given string.
-
-countAbc("abc") → 1
-countAbc("abcxxabc") → 2
-countAbc("abaxxaba") → 2 */
+// Count recursively the total number of "abc" and "aba" substrings that appear in the given string.
 
 public int countAbc(String str) {
   if (str.length() <= 2) {
@@ -476,12 +469,8 @@ public int countAbc(String str) {
   return 0 + countAbc(str.substring(1));
 }
 
-/* 
-Given a string, compute recursively (no loops) the number of "11" substrings in the string. The "11" substrings should not overlap.
+// Given a string, compute recursively (no loops) the number of "11" substrings in the string. The "11" substrings should not overlap.
 
-count11("11abc11") → 2
-count11("abc11x11x11") → 3
-count11("111") → 1 */
 
 public int count11(String str) {
   if (str.length() <= 1) {
@@ -493,11 +482,7 @@ public int count11(String str) {
   return 0 + count11(str.substring(1));
 }
 
-/* Given a string, return recursively a "cleaned" string where adjacent chars that are the same have been reduced to a single char. So "yyzzza" yields "yza".
-
-stringClean("yyzzza") → "yza"
-stringClean("abbbcdd") → "abcd"
-stringClean("Hello") → "Helo" */
+// Given a string, return recursively a "cleaned" string where adjacent chars that are the same have been reduced to a single char. So "yyzzza" yields "yza".
 
 public String stringClean(String str) {
   if (str.length() <= 1) {
@@ -509,11 +494,7 @@ public String stringClean(String str) {
   return str.substring(0,1) + stringClean(str.substring(1));
 }
 
-/* Given a string, compute recursively the number of times lowercase "hi" appears in the string, however do not count "hi" that have an 'x' immedately before them.
-
-countHi2("ahixhi") → 1
-countHi2("ahibhi") → 2
-countHi2("xhixhi") → 0 */
+// Given a string, compute recursively the number of times lowercase "hi" appears in the string, however do not count "hi" that have an 'x' immedately before them.
 
 public int countHi2(String str) {
   if (str.length() < 2) {
@@ -531,11 +512,8 @@ public int countHi2(String str) {
   return 0 + countHi2 (str.substring(1));
 }
 
-/* Given a string that contains a single pair of parenthesis, compute recursively a new string made of only of the parenthesis and their contents, so "xyz(abc)123" yields "(abc)".
+// Given a string that contains a single pair of parenthesis, compute recursively a new string made of only of the parenthesis and their contents, so "xyz(abc)123" yields "(abc)".
 
-parenBit("xyz(abc)123") → "(abc)"
-parenBit("x(hello)") → "(hello)"
-parenBit("(xy)1") → "(xy)" */
 
 public String parenBit(String str) {
   if (str.charAt(0) != '(') {
@@ -547,4 +525,32 @@ public String parenBit(String str) {
   return str;
 }
 
+
+// Given a string, return true if it is a nesting of zero or more pairs of parenthesis, like "(())" or "((()))". Suggestion: check the first and last chars, and then recur on what's inside them.
+
+public boolean nestParen(String str) {
+  if (str.length() == 0) {
+    return true;
+  }
+  if (str.length() < 2) {
+    return false;
+  }
+  if (str.length() == 2) {
+    if (str.equals("()")) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  if (str.charAt(0) == '(') {
+    if (str.charAt(str.length() - 1) == ')') {
+      return nestParen(str.substring(1, str.length() - 1));
+    }
+    return nestParen(str.substring(0, str.length() - 1));
+  }
+  if (str.charAt(str.length() -1) == ')') {
+    return nestParen(str.substring(1));
+  }
+  return nestParen(str.substring(1, str.length() - 1));
+}
 

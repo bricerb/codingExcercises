@@ -29,4 +29,13 @@ public boolean commonEnd(int[] a, int[] b) {
   return (a[0] == b[0] || a[a.length - 1] == b[b.length - 1]);
 }
 
+// Given an array of ints length 3, return the sum of all the elements.
+
+public int sum3(int[] nums) {
+  return nums[0] + nums[1] + nums[2];
+}
+
+
+
+
 

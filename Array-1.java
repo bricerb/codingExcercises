@@ -213,5 +213,16 @@ public int maxTriple(int[] nums) {
   return comp;
 }
 
+// Given an int array of any length, return a new array of its first 2 elements. If the array is smaller than length 2, use whatever elements are present.
+
+public int[] frontPiece(int[] nums) {
+  if (nums.length <= 2) {
+    return nums;
+  }
+  int[] res = new int[2];
+  res[0] = nums[0];
+  res[1] = nums[1];
+  return res;
+}
 
 

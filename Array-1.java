@@ -266,8 +266,8 @@ public int[] make2(int[] a, int[] b) {
 
 public int[] front11(int[] a, int[] b) {
   int[] res = new int[1];
-  if (a.length == 0 &&b.length == 0) {
-    return res;
+  if (a.length == 0 && b.length == 0) {
+    return a;
   }
   if (a.length == 0) {
     res[0] = b[0];

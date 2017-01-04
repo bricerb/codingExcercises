@@ -195,9 +195,22 @@ public int[] swapEnds(int[] nums) {
 public int[] midThree(int[] nums) {
   int[] res = new int[3];
   res[0] = nums[nums.length / 2 - 1];
-  res[1] = nums[(nums.length - 1) / 2];
+  res[1] = nums[nums.length / 2];
   res[2] = nums[nums.length / 2 + 1];
   return res;
+}
+
+// Given an array of ints of odd length, look at the first, last, and middle values in the array and return the largest. The array length will be a least 1.
+
+public int maxTriple(int[] nums) {
+  int comp = nums[0];
+  if (comp < nums[nums.length - 1]) {
+    comp = nums[nums.length - 1];
+  }
+  if (comp < nums[nums.length / 2]) {
+    comp = nums[nums.length / 2];
+  }
+  return comp;
 }
 
 

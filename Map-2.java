@@ -56,6 +56,21 @@ public Map<String, String> firstChar(String[] strings) {
   return map;
 }
 
+// Loop over the given array of strings to build a result string like this: when a string appears the 2nd, 4th, 6th, etc. time in the array, append the string to the result. Return the empty string if no string appears a 2nd time.
+
+public String wordAppend(String[] strings) {
+  StringBuilder res = new StringBuilder();
+  Map<String, String> map = new HashMap<String, String>();
+  for (String s : strings) {
+    if (map.containsKey(s)) {
+      res.append(s);
+      map.remove(s);
+    } else {
+      map.put(s, s);
+    }
+  }
+  return res.toString();
+}
 
 
 

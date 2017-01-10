@@ -127,7 +127,7 @@ public int blackjack(int a, int b) {
   }
 }
 
-// ALTERNATIVE - Solve blackjack() using ternary operator.
+/* ALTERNATIVE - Solve blackjack() using ternary operator. Another possibility is to use Math.max
 
 public int blackjack(int a, int b) {
   if (a > 21) {
@@ -141,7 +141,7 @@ public int blackjack(int a, int b) {
   return res;
 }
 
-
+*/
 
 
 

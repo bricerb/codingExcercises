@@ -143,7 +143,51 @@ public int blackjack(int a, int b) {
 
 */
 
+// Given three ints, a b c, one of them is small, one is medium and one is large. Return true if the three values are evenly spaced, so the difference between small and medium is the same as the difference between medium and large.
 
+public boolean evenlySpaced(int a, int b, int c) {
+  if (a == b & a == c) {
+    return true;
+  }
+  if (a == b || a == c || b == c) {
+    return false;
+  }
+  if (Math.abs(a - b) == Math.abs(b - c)) {
+    return true;
+  }
+  if (Math.abs(a - c) == Math.abs(a- b)) {
+    return true;
+  }
+  if (Math.abs(b - c) == Math.abs(a - c)) {
+    return true;
+  }
+  return false;
+}
+
+// We want make a package of goal kilos of chocolate. We have small bars (1 kilo each) and big bars (5 kilos each). Return the number of small bars to use, assuming we always use big bars before small bars. Return -1 if it can't be done.
+
+public int makeChocolate(int small, int big, int goal) {
+  int big5 = big * 5;
+  if (big5 + small < goal) {
+    return -1;
+  }
+  if (goal % 5 == 0 && goal < big5) {
+    return 0;
+  }
+  if (big5 == goal) {
+    return 0;
+  }
+  while (goal > 5 && big5 != 0) {
+    big5 -= 5;
+    goal -= 5;
+  }
+  if (goal > small) {
+    return - 1;
+  }
+  return goal;
+}
+
+// 
 
 
 

@@ -23,3 +23,38 @@ public int countHi(String str) {
 }
 
 // Return true if the string "cat" and "dog" appear the same number of times in the given string.
+
+public boolean catDog(String str) {
+  int countCat = 0;
+  int countDog = 0;
+  if (str.length() >= 3) {
+    for (int i = 0; i < str.length() - 1; i ++) {
+      if (!(i + 2 > str.length() - 1)) {
+        if (str.substring(i, i + 3).equals("cat")) {
+          countCat ++;
+        }
+        if (str.substring(i, i + 3).equals("dog")) {
+          countDog ++;
+        }
+      }
+    }
+  }
+  return (countCat == countDog);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

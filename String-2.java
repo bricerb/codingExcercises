@@ -42,6 +42,19 @@ public boolean catDog(String str) {
   return (countCat == countDog);
 }
 
+// Return the number of times that the string "code" appears anywhere in the given string, except we'll accept any letter for the 'd', so "cope" and "cooe" count.
+
+public int countCode(String str) {
+  int count = 0;
+  for (int i = 0; i < str.length() - 1; i ++) {
+    if (i + 3 < str.length()) {
+      if (str.substring(i, i+2).equals("co") && str.substring(i + 3, i + 4).equals("e")) {
+        count ++;
+      }
+    }
+  }
+  return count;
+}
 
 
 

@@ -165,6 +165,18 @@ public String mixString(String a, String b) {
   return res.toString();
 }
 
+// Given a string and an int n, return a string made of n repetitions of the last n characters of the string. You may assume that n is between 0 and the length of the string, inclusive.
+
+public String repeatEnd(String str, int n) {
+  StringBuilder res = new StringBuilder();
+  for (int i = 0; i < n; i++) {
+    res.append(str.substring(str.length() - n));
+  }
+  return res.toString();
+}
+
+
+
 
 
 

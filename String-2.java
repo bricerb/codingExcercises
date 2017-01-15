@@ -129,6 +129,41 @@ public boolean xyBalance(String str) {
   return balanced;
 }
 
+// Given two strings, a and b, create a bigger string made of the first char of a, the first char of b, the second char of a, the second char of b, and so on. Any leftover chars go at the end of the result.
+
+public String mixString(String a, String b) {
+  if (a.length() == 0) {
+    return b;
+  }
+  if (b.length() == 0) {
+    return a;
+  }
+  char[] aChar = a.toCharArray();
+  char[] bChar = b.toCharArray();
+  StringBuilder res = new StringBuilder();
+  if (a.length() > b.length()) {
+    for (int i = 0; i < b.length(); i++) {
+      res.append(aChar[i]);
+      res.append(bChar[i]);
+    if (i == b.length() - 1) {
+      for (int j = i + 1; j < a.length(); j++) {
+        res.append(aChar[j]);
+      }
+    }
+    }
+  } else {
+    for (int i = 0; i < a.length(); i++) {
+      res.append(aChar[i]);
+      res.append(bChar[i]);
+    if (i == a.length() - 1) {
+      for (int j = i + 1; j < b.length(); j++) {
+        res.append(bChar[j]);
+      }
+    }
+    }
+  }
+  return res.toString();
+}
 
 
 

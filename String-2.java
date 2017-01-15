@@ -175,6 +175,43 @@ public String repeatEnd(String str, int n) {
   return res.toString();
 }
 
+// Given a string and an int n, return a string made of the first n characters of the string, followed by the first n-1 characters of the string, and so on. You may assume that n is between 0 and the length of the string, inclusive (i.e. n >= 0 and n <= str.length()).
+
+public String repeatFront(String str, int n) {
+  StringBuilder res = new StringBuilder();
+  for (int i = n; i >= 0; i--) {
+    res.append(str.substring(0, i));
+  }
+  return res.toString();
+}
+
+// Given two strings, word and a separator sep, return a big string made of count occurrences of the word, separated by the separator string.
+
+public String repeatSeparator(String word, String sep, int count) {
+  if (count == 0) {
+    return "";
+  }
+  StringBuilder res = new StringBuilder();
+  res.append(word);
+  for (int i = 1; i < count; i++) {
+    res.append(sep);
+    res.append(word);
+  }
+  return res.toString();
+}
+
+// ALTERNATIVE -- Given two strings, word and a separator sep, return a big string made of count occurrences of the word, separated by the separator string.
+
+public String repeatSeparator(String word, String sep, int count) {
+  StringBuilder res = new StringBuilder();
+  for (int i = 0; i < count; i++) {
+    res.append(word);
+    if (!(i == count - 1)) {
+      res.append(sep);
+    }
+  }
+  return res.toString();
+}
 
 
 

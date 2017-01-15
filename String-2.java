@@ -110,8 +110,24 @@ public boolean bobThere(String str) {
   return false;
 }
 
+// We'll say that a String is xy-balanced if for all the 'x' chars in the string, there exists a 'y' char somewhere later in the string. So "xxy" is balanced, but "xyx" is not. One 'y' can balance multiple 'x's. Return true if the given string is xy-balanced.
 
-
+public boolean xyBalance(String str) {
+  boolean balanced = true;
+  boolean isX = false;
+  for (int i = 0; i < str.length(); i++) {
+    if (str.substring(i, i+1).equals("x")) {
+      isX = true;
+    }
+    if (str.substring(i, i+1).equals("y") && isX) {
+      balanced = true;
+    }
+    if (str.substring(i, i+1).equals("x") && balanced) {
+      balanced = false;
+    }
+  }
+  return balanced;
+}
 
 
 

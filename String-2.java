@@ -247,7 +247,23 @@ public boolean xyzMiddle(String str) {
   return false;
 }
 
+// A sandwich is two pieces of bread with something in between. Return the string that is between the first and last appearance of "bread" in the given string, or return the empty string "" if there are not two pieces of bread.
 
+public String getSandwich(String str) {
+  if (str.length() < 10) {
+    return "";
+  }
+  for (int i = 0; i < str.length(); i++) {
+    if (str.substring(i, i + 5).equals("bread")) {
+      for (int j = str.length(); j > i; j--) {
+        if (str.substring(j - 5, j).equals("bread")) {
+          return str.substring(i + 5, j - 5);
+        }
+      }
+    }
+  }
+  return "";
+}
 
 
 

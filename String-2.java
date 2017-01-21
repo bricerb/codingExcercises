@@ -265,8 +265,24 @@ public String getSandwich(String str) {
   return "";
 }
 
+// Returns true if for every '*' (star) in the string, if there are chars both immediately before and after the star, they are the same.
 
-
+public boolean sameStarChar(String str) {
+  boolean res = true;
+  if (str.length() < 3) {
+    return true;
+  }
+  for (int i = 1; i < str.length() - 1; i++) {
+    if (str.substring(i, i + 1).equals("*")) {
+      if (str.substring(i -1, i).equals(str.substring(i + 1, i + 2))) {
+        res = true;
+      } else {
+        return false;
+      }
+    }
+  }
+  return res;
+}
 
 
 

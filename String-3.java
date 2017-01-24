@@ -44,6 +44,22 @@ public boolean equalIsNot(String str) {
   return (is == not);
 }
 
+// We'll say that a lowercase 'g' in a string is "happy" if there is another 'g' immediately to its left or right. Return true if all the g's in the given string are happy.
+
+public boolean gHappy(String str) {
+  boolean isHappy = true;
+  for (int i = 0; i < str.length(); i++) {
+    if (str.charAt(i) == 'g' && i + 1 < str.length() && str.charAt(i + 1) == 'g') {
+      isHappy = true;
+    } else if (str.charAt(i) == 'g' && i - 1 >= 0 && str.charAt(i - 1) == 'g') {
+      isHappy = true;
+    } else if (str.charAt(i) == 'g') {
+      isHappy = false;
+    }
+  }
+  return isHappy;
+}
+
 
 
 

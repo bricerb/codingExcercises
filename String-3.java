@@ -115,6 +115,28 @@ public String mirrorEnds(String string) {
   return sb.toString();
 }
 
+// Given a string, return the length of the largest "block" in the string. A block is a run of adjacent chars that are the same.
+
+public int maxBlock(String str) {
+  if (str.length() == 0) {
+    return 0;
+  }
+  int count = 0;
+  int tempCount = 0;
+  char temp = str.charAt(0);
+  for (int i = 0; i <= str.length() - 1; i++) {
+    if (temp == str.charAt(i)) {
+      tempCount++;
+      if (tempCount >= count) {
+        count = tempCount;
+      }
+    } else {
+      temp = str.charAt(i);
+      tempCount = 1;
+    }
+  }
+  return count;
+}
 
 
 

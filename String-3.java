@@ -100,8 +100,20 @@ public String sameEnds(String string) {
   return sb.toString();
 }
 
+// Given a string, look for a mirror image (backwards) string at both the beginning and end of the given string. In other words, zero or more characters at the very begining of the given string, and at the very end of the string in reverse order (possibly overlapping). For example, the string "abXYZba" has the mirror end "ab".
 
-
+public String mirrorEnds(String string) {
+  StringBuilder sb = new StringBuilder();
+  int len = string.length();
+  for (int i = 0; i < len; i++) {
+    if (string.substring(i, i + 1).equals(string.substring(len - i - 1, len - i))) {
+      sb.append(string.charAt(i));
+    } else {
+      break;
+    }
+  }
+  return sb.toString();
+}
 
 
 

@@ -86,6 +86,20 @@ public int sumDigits(String str) {
   return res;
 }
 
+// Given a string, return the longest substring that appears at both the beginning and end of the string without overlapping. For example, sameEnds("abXab") is "ab".
+
+public String sameEnds(String string) {
+  StringBuilder sb = new StringBuilder();
+  int len = string.length();
+  for (int i = len / 2; i > 0; i--) {
+    if (string.substring(0, i).equals(string.substring(len - i, len))) {
+      sb.append(string.substring(0, i));
+      break;
+    }
+  }
+  return sb.toString();
+}
+
 
 
 

@@ -429,6 +429,47 @@ public int[] notAlone(int[] nums, int val) {
   return res;
 }
 
+// Return an array that contains the exact same numbers as the given array, but rearranged so that all the zeros are grouped at the start of the array. The order of the non-zero numbers does not matter. So {1, 0, 0, 1} becomes {0 ,0, 1, 1}. You may modify and return the given array or make a new array.
+
+// public int[] zeroFront(int[] nums) {
+//   while(true){
+//     boolean didSwitch = false;
+//     for(int i = 0; i < nums.length; i ++) {
+//       if (nums[i] == 0) {
+//         if (i > 0 && nums[i-1] != 0) {
+//           didSwitch = true;
+//           nums[i] = nums[i-1];
+//           nums[i-1] = 0; 
+//         }
+//       }
+//     }
+//     if (!didSwitch) {
+//       break;
+//     }
+//   }
+//   return nums;
+// }
+
+public int[] zeroFront(int[] nums) {
+  int count = 0;
+  if (nums.length == 0) {
+    return nums;
+  }
+  while (nums[count] == 0) {
+    count ++;
+  }
+  for (int i = nums.length-1; i >= count; i --) {
+    if (nums[i] == 0) {
+      nums[i] = nums[count];
+      nums[count] = 0;
+      count ++;
+    }
+  }
+  return nums;
+}
+
+
+
 
 
 

@@ -539,5 +539,28 @@ public int[] evenOdd(int[] nums) {
   return nums;
 }
 
+// Consider the series of numbers beginning at start and running up to but not including end, so for example start=1 and end=5 gives the series 1, 2, 3, 4. Return a new String[] array containing the string form of these numbers, except for multiples of 3, use "Fizz" instead of the number, for multiples of 5 use "Buzz", and for multiples of both 3 and 5 use "FizzBuzz". In Java, String.valueOf(xxx) will make the String form of an int or other type. This version is a little more complicated than the usual version since you have to allocate and index into an array instead of just printing, and we vary the start/end instead of just always doing 1..100.
+
+public String[] fizzBuzz(int start, int end) {
+  int len = end-start;
+  String[] res = new String[len];
+  int currentNum = start;
+  for (int i = 0; i < len; i ++) {
+    StringBuilder sb = new StringBuilder();
+    if (currentNum % 3 == 0) {
+      sb.append("Fizz");
+    }
+    if (currentNum % 5 == 0) {
+      sb.append("Buzz");
+    }
+    if (sb.toString().length() == 0) {
+      sb.append(String.valueOf(currentNum));
+    }
+    res[i] = sb.toString();
+    currentNum ++;
+  }
+  return res;
+}
+
 
 

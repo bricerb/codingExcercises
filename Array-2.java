@@ -468,10 +468,57 @@ public int[] zeroFront(int[] nums) {
   return nums;
 }
 
+// Return a version of the given array where all the 10's have been removed. The remaining elements should shift left towards the start of the array as needed, and the empty spaces a the end of the array should be 0. So {1, 10, 10, 2} yields {1, 2, 0, 0}. You may modify and return the given array or make a new array.
 
+// public int[] withoutTen(int[] nums) {
+//   for (int i = 0; i < nums.length; i ++) {
+//     if (nums[i] == 10) {
+//       for (int j = i; j < nums.length - 1; j ++) {
+//         nums[j] = nums[j + 1];
+//       }
+//       nums[nums.length-1] = 0;
+      
+//       if (nums[i] == 10) {
+//         i --;
+//       }
+//     }
+//   }
+//   return nums;
+// }
 
+public int[] withoutTen(int[] nums) {
+  for (int i = 0; i < nums.length; i ++) {
+    if (nums[i] == 10) {
+      for (int j = i; j < nums.length - 1; j ++) {
+        nums[j] = nums[j + 1];
+      }
+      nums[nums.length-1] = 0;
+      if (nums[i] == 10) {
+        i --;
+      }
+    }
+  }
+  return nums;
+}
 
+// Return a version of the given array where each zero value in the array is replaced by the largest odd value to the right of the zero in the array. If there is no odd value to the right of the zero, leave the zero as a zero.
 
+public int[] zeroMax(int[] nums) {
+  int[] res = new int[nums.length];
+  int temp = 0;
+  for (int i = nums.length-1; i >= 0; i --) {
+    if (nums[i] == 0) {
+      res[i] = temp;
+    } else {
+      if (nums[i] > temp && nums[i] % 2 == 1) {
+        temp = nums[i];
+      }
+      res[i] = nums[i];
+    }
+    
+  }
+  return res;
+}
 
 
 

@@ -99,6 +99,23 @@ public int[] fix45(int[] nums) {
 // return nums;
 // }
 
+// Given a non-empty array, return true if there is a place to split the array so that the sum of the numbers on one side is equal to the sum of the numbers on the other side.
+
+public boolean canBalance(int[] nums) {
+  int before = 0;
+  int after = 0;
+  for (int i = 0; i < nums.length; i ++) {
+    after += nums[i];
+  }
+  for (int i = 0; i < nums.length; i ++) {
+    before += nums[i];
+    after -= nums[i];
+    if (before ==  after) {
+      return true;
+    }
+  }
+  return false;
+}
 
 
 

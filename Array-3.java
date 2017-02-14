@@ -117,6 +117,24 @@ public boolean canBalance(int[] nums) {
   return false;
 }
 
+// Given two arrays of ints sorted in increasing order, outer and inner, return true if all of the numbers in inner appear in outer. The best solution makes only a single "linear" pass of both arrays, taking advantage of the fact that both arrays are already in sorted order.
+
+public boolean linearIn(int[] outer, int[] inner) {
+  boolean inside = false;
+  int index = 0;
+  int count = 0;
+  for (int i = 0; i < inner.length; i ++) {
+    for (int j = index; j < outer.length; j ++) {
+      if (outer[j] == inner[i]) {
+        index  = j;
+        count ++;
+        break;
+      }
+    }
+  }
+  return (count == inner.length);
+}
+
 
 
 

@@ -167,6 +167,27 @@ public int[] seriesUp(int n) {
   return res;
 }
 
+// We'll say that a "mirror" section in an array is a group of contiguous elements such that somewhere in the array, the same group appears in reverse order. For example, the largest mirror section in {1, 2, 3, 8, 9, 3, 2, 1} is length 3 (the {1, 2, 3} part). Return the size of the largest mirror section found in the given array.
+
+public int maxMirror(int[] nums) {
+  int len = nums.length;
+  int res = 0;
+  for (int i = 0; i < nums.length; i ++) {
+    int temp = 0;
+    for (int j = len - 1; j >= 0 && i + temp < len; j --) {
+      if (nums[i+temp] == nums[j]) {
+        temp ++;
+      } else {
+        if (temp > 0) {
+          res = Math.max(temp, res);
+          temp = 0;
+        }
+      }
+    }
+    res = Math.max(res, temp);
+  }
+  return res;
+}
 
 
 

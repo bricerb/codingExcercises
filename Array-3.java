@@ -135,7 +135,24 @@ public boolean linearIn(int[] outer, int[] inner) {
   return (count == inner.length);
 }
 
+// Given n>=0, create an array length n*n with the following pattern, shown here for n=3 : {0, 0, 1,    0, 2, 1,    3, 2, 1} (spaces added to show the 3 groups).
 
+public int[] squareUp(int n) {
+  int[] nums = new int[n];
+  for (int i = 0; i < nums.length; i ++) {
+    nums[i] = i+1;
+  }
+  int[] res = new int[n*n];
+  int numsIndex = n-1;
+  for (int i = res.length-1; i >= 0; i -= n) {
+    for (int j = 0; j < n; j ++) {
+      res[i-j] = nums[j];
+    }
+    nums[numsIndex] = 0;
+    numsIndex --;
+  }
+  return res;
+}
 
 
 

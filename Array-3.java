@@ -189,6 +189,24 @@ public int maxMirror(int[] nums) {
   return res;
 }
 
+// Say that a "clump" in an array is a series of 2 or more adjacent elements of the same value. Return the number of clumps in the given array.
+
+public int countClumps(int[] nums) {
+  int len = nums.length;
+  int clumps = 0;
+  if (nums.length < 1) {
+    return clumps;
+  }
+  int compInt = -1;
+  for (int i = 0; i < len-1; i ++) {
+   if (nums[i] != compInt && nums[i] == nums[i+1]) {
+     clumps ++;
+   }
+   compInt = nums[i];
+  }
+  return clumps;
+}
+
 
 
 

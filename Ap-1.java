@@ -103,6 +103,26 @@ public boolean hasOne(int n) {
   return false;
 }
 
+// We'll say that a positive int divides itself if every digit in the number divides into the number evenly. So for example 128 divides itself since 1, 2, and 8 all divide into 128 evenly. We'll say that 0 does not divide into anything evenly, so no number with a 0 digit divides itself. Note: use % to get the rightmost digit, and / to discard the rightmost digit.
+
+public boolean dividesSelf(int n) {
+  boolean isTrue = false;
+  int o = n;
+  while (o > 0) {
+    int j = o % 10;
+    if (j == 0) {
+      return false;
+    }
+    if (n % j == 0) {
+      isTrue = true;
+    } else {
+      return false;
+    }
+    o = o / 10;
+  }
+  return isTrue;
+}
+
 
 
 
